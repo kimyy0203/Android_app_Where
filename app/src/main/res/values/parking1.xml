@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wash">
+        <item>손세차</item>
+        <item>셀프세차</item>
+    </string-array>
+</resources>

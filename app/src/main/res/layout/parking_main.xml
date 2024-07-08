@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Parking">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.naver.maps.map.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/zz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/round_corner"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/address_input"
+                android:layout_width="282dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:ems="10"
+                android:hint="주소를 입력하세요"
+                android:textColor="#0B0000"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_baseline_search_24" />
+
+            <Button
+                android:id="@+id/camera"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/ic_baseline_photo_camera_24" />
+
+
+        </LinearLayout>
+
+        <com.naver.maps.map.widget.LocationButtonView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aa"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"/>
+
+
+        <com.naver.maps.map.widget.ZoomControlView
+            android:id="@+id/zoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/location"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp" />
+
+        <com.naver.maps.map.widget.CompassView
+            android:id="@+id/compass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/zoom"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="0dp" />
+
+        <com.naver.maps.map.widget.ScaleBarView
+            android:id="@+id/scalebar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/compass"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/aa"
+            android:layout_width="390dp"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/zz"
+            android:background="#D9FFFFFF">
+
+            <Spinner
+                android:id="@+id/kind"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:entries="@array/kind" />
+
+            <Button
+                android:id="@+id/check"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:text="확인"
+                android:layout_marginLeft="225dp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

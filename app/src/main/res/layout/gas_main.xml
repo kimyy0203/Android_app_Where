@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    tools:context=".GasStation">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.naver.maps.map.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="500dp" />
+
+        <com.naver.maps.map.widget.LocationButtonView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/zz"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp" />
+
+        <com.naver.maps.map.widget.ZoomControlView
+            android:id="@+id/zoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/location"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp" />
+
+        <com.naver.maps.map.widget.CompassView
+            android:id="@+id/compass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/zoom"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp" />
+
+        <com.naver.maps.map.widget.ScaleBarView
+            android:id="@+id/scalebar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/compass"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp" />
+
+        <LinearLayout
+            android:id="@+id/aa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/map"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/lin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/zz"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/round_corner"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/추천"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:entries="@array/km" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:entries="@array/gas" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:entries="@array/array2" />
+
+            <Button
+                android:id="@+id/now"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#0CA3F4"
+                android:text="검색" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_above="@id/aa"
+            android:background="@drawable/gradient"
+            android:orientation="vertical"></LinearLayout>
+
+        <Button
+            android:id="@+id/infomation"
+            android:layout_width="50dp"
+            android:layout_height="65dp"
+            android:layout_alignBottom="@id/map"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="4dp"
+            android:background="#00FFFFFF"
+            android:drawableTop="@drawable/ic_information" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

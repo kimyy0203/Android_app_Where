@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/black"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="주유소 상호정보"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/sk"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/sk_round" />
+
+        <TextView
+            android:id="@+id/sktitle"
+            android:text="SK 에너지"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/sk"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/hundae"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/hun_round"/>
+
+
+        <TextView
+            android:id="@+id/huntitle"
+            android:text="현대오일뱅크"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/hundae"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/gs"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/gs_round"/>
+
+
+        <TextView
+            android:id="@+id/gstitle"
+            android:text="GS칼텍스"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/gs"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/soil"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/soil_round"/>
+
+
+        <TextView
+            android:id="@+id/soiltitle"
+            android:text="S-OIL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/soil"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/nong"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/nong_round"/>
+
+
+        <TextView
+            android:id="@+id/nongtitle"
+            android:text="농협알뜰"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/nong"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/road"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/road_round"/>
+
+
+        <TextView
+            android:id="@+id/roadtitle"
+            android:text="고속도로알뜰"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/road"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/self"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/self_round"/>
+
+
+        <TextView
+            android:id="@+id/selftitle"
+            android:text="자가상표"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/self"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/e1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/e1_round"/>
+
+
+        <TextView
+            android:id="@+id/e1title"
+            android:text="E1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/e1"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/sale"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/sale_round"/>
+
+
+        <TextView
+            android:id="@+id/saletitle"
+            android:text="자영알뜰"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/sale"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/skg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/skg_round"/>
+
+
+        <TextView
+            android:id="@+id/skgtitle"
+            android:text="SK 가스"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@id/skg"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
