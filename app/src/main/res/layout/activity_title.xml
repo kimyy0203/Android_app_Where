@@ -124,7 +124,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/정비소"
-        android:background="#87CEEB">
+        android:background="#DDC1F6">
 
         <ImageView
             android:layout_margin="10dp"

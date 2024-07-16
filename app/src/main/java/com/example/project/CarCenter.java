@@ -202,7 +202,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
     }
 
 
-    private void getXmlData(int q) { //전국세차장 정보 데이터 파싱
+    private void getXmlData(int q) { //전국정비소 정보 데이터 파싱
         String queryUrl = "http://api.data.go.kr/openapi/tn_pubr_public_auto_maintenance_company_api?serviceKey=28k6dj2VzcV4Bgng3CN931SanEKlVifOCPTFQ%2FaOF%2BLhVB3gH1YztmmiClWwCeFaviTXIRrZvGFGgkYRiIsipQ%3D%3D&pageNo=0&numOfRows=15000&type=xm";
         //String queryUrl = "http://api.data.go.kr/openapi/tn_pubr_public_carwsh_api?serviceKey=d8w2%2FGzcZJPLy8PLdb7OZOuJk1223dqUzF%2BHWvuT3px1t9dbzJ5cJ95h%2Bg%2B7XsW8hG85guyXA%2BfNbfnLaQtuJA%3D%3D&pageNo=0&numOfRows=15000&type=xml";
         try {
