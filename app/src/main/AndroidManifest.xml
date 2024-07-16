@@ -42,6 +42,8 @@
             android:configChanges="screenSize|orientation"/>
         <activity android:name=".Washing"
             android:configChanges="screenSize|orientation"/>
+        <activity android:name=".CarCenter"
+            android:configChanges="screenSize|orientation"/>
 
 
         <meta-data

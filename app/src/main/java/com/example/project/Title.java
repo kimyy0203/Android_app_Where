@@ -49,6 +49,15 @@ public class Title extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        LinearLayout button4 = findViewById(R.id.정비소);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Title.this, CarCenter.class);
+                startActivity(intent);
+            }
+        });
+
     }
     public void onBackPressed() {
         if (System.currentTimeMillis() > backKeyPressedTime + 2500) {

@@ -71,6 +71,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
     String[] type = new String[20000]; // 정비소 종류
     String[] open = new String[20000]; // 정비소 시작 시간
     String[] close = new String[20000]; // 정비소 닫는 시각
+    String[] state = new String[20000]; // 정비소 상태
     Marker[] markers = new Marker[20000];
 
     int count = 0;
@@ -88,7 +89,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.washing_main);
+        setContentView(R.layout.carcenter_main);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -203,7 +204,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
 
 
     private void getXmlData(int q) { //전국정비소 정보 데이터 파싱
-        String queryUrl = "http://api.data.go.kr/openapi/tn_pubr_public_auto_maintenance_company_api?serviceKey=28k6dj2VzcV4Bgng3CN931SanEKlVifOCPTFQ%2FaOF%2BLhVB3gH1YztmmiClWwCeFaviTXIRrZvGFGgkYRiIsipQ%3D%3D&pageNo=0&numOfRows=15000&type=xm";
+        String queryUrl = "http://api.data.go.kr/openapi/tn_pubr_public_auto_maintenance_company_api?serviceKey=28k6dj2VzcV4Bgng3CN931SanEKlVifOCPTFQ%2FaOF%2BLhVB3gH1YztmmiClWwCeFaviTXIRrZvGFGgkYRiIsipQ%3D%3D&pageNo=0&numOfRows=15000&type=xml";
         //String queryUrl = "http://api.data.go.kr/openapi/tn_pubr_public_carwsh_api?serviceKey=d8w2%2FGzcZJPLy8PLdb7OZOuJk1223dqUzF%2BHWvuT3px1t9dbzJ5cJ95h%2Bg%2B7XsW8hG85guyXA%2BfNbfnLaQtuJA%3D%3D&pageNo=0&numOfRows=15000&type=xml";
         try {
             URL url = new URL(queryUrl);//문자열로 된 요청 url을 URL 객체로 생성.
@@ -227,25 +228,34 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                         tag = xpp.getName();
 
                         if (tag.equals("item")) ;
-                        else if (tag.equals("carwshNm")) { //세차장 명
+                        else if (tag.equals("inspofcNm")) { //정비소 명
                             xpp.next();
                             name[count] = xpp.getText();
-                        } else if (tag.equals("carwshType")) { //세차 방법
+                        } else if (tag.equals("inspofcType")) { //정비소 종류
                             xpp.next();
-                            washway[count] = xpp.getText();
+                            type[count] = xpp.getText();
                         } else if (tag.equals("rdnmadr")) { //주소
                             xpp.next();
                             lnmadr[count] = xpp.getText();
-                        } else if (tag.equals("phoneNumber")) { //세차장 전화 번호
+                        } else if (tag.equals("phoneNumber")) { //정비소 전화 번호
                             xpp.next();
                             phoneN[count] = xpp.getText();
-                        } else if (tag.equals("latitude")) { //세차장 위도
+                        } else if (tag.equals("latitude")) { //정비소 위도
                             xpp.next();
                             lati[count] = xpp.getText();
-                        } else if (tag.equals("longitude")) { //세차장 경도
+                        } else if (tag.equals("longitude")) { //정비소 경도
                             xpp.next();
                             lontude[count] = xpp.getText();
                             count++;
+                        } else if(tag.equals("operOpenHm")) { //정비소 시작 시간
+                            xpp.next();
+                            open[count] = xpp.getText();
+                        } else if(tag.equals("operCloseHm")) { //정비소 닫는 시간
+                            xpp.next();
+                            close[count] = xpp.getText();
+                        } else if(tag.equals("bsnSttus")) { //정비소 상태
+                            xpp.next();
+                            state[count] = xpp.getText();
                         }
 
                     case XmlPullParser.TEXT:
@@ -298,15 +308,15 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                 Toast.makeText(this.getApplicationContext(), "정보창을 닫습니다.", Toast.LENGTH_LONG).show();
             } else {
                 InfoWindow.open(marker);
-                AlertDialog.Builder dlg = new AlertDialog.Builder(com.example.project.Washing.this);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(com.example.project.CarCenter.this);
 
                 dlg.setTitle("상세정보"); //제목
-                dlg.setMessage("주소 : " + lnmadr[as] + "\n전화번호 : " + phoneN[as] + "\n세차방법 : " + washway[as]);
+                dlg.setMessage("주소 : " + lnmadr[as] + "\n전화번호 : " + phoneN[as] + "\n정비소 종류 : " + type[as] +"\n운영상태 : " + state[as] + "\n운영시간 : " + open[as] + " ~ " + close[as]);
                 dlg.setPositiveButton("길찾기", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int a) { //길찾기 버튼 클릭시 주소값을 intent하여 다른 네비게이션 어플과 연동
 
-                        AlertDialog.Builder dlg = new AlertDialog.Builder(com.example.project.Washing.this);
+                        AlertDialog.Builder dlg = new AlertDialog.Builder(com.example.project.CarCenter.this);
                         dlg.setTitle("길찾기");
                         final String[] versionArray = new String[]{"카카오맵", "네이버 지도"};
                         dlg.setSingleChoiceItems(versionArray, 0, new DialogInterface.OnClickListener() {
@@ -341,7 +351,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                                         startActivity(intent);
                                     }
                                 }
-                                Toast.makeText(com.example.project.Washing.this, "확인을 눌르셨습니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(com.example.project.CarCenter.this, "확인을 눌렀습니다.", Toast.LENGTH_SHORT).show();
                             }
                         });
                         dlg.show();
@@ -386,7 +396,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
 
         @Override
         protected void onPreExecute() { // progressDialog창 구현(파싱값 저장전까지 실행)
-            progressDialog = ProgressDialog.show(Washing.this, "잠시만 기다려주세요", "진행중입니다.", true);
+            progressDialog = ProgressDialog.show(CarCenter.this, "잠시만 기다려주세요", "진행중입니다.", true);
             super.onPreExecute();
         }
 
@@ -395,6 +405,11 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
             super.onPostExecute(s);
             for (int i = 0; i < count; i++) {
 
+                if (name[i] == null || lati[i] == null || lontude[i] == null || lnmadr[i] == null|| phoneN[i] == null|| type[i] == null|| open[i] == null|| close[i] == null|| state[i] == null) {
+                    continue;
+                }
+
+                /*
                 if (name[i] == null || lontude[i] == null || lati[i] == null || washway[i] == null || phoneN[i] == null || Double.parseDouble(lati[i]) >= 38.60491243211909 || phoneN[i].equals("041-337-7617") || phoneN[i].equals("041-338-6688") || phoneN[i].equals("041-331-0877") || washway[i].equals("자동세차") || washway[i].equals("자동") || washway[i].equals("기계식") || washway[i].equals("충전소") || washway[i].equals("기계세차") || washway[i].equals("정비업소") || washway[i].equals("물세차") || washway[i].equals("기계식세차") || washway[i].equals("스팀세차") || washway[i].equals("일반세차") || washway[i].equals("주유소") || washway[i].equals("일반") || washway[i].equals("세차") || washway[i].equals("세차업") || washway[i].equals("자동세차장") || washway[i].equals("손+자동세차") || washway[i].equals("손세차/자동세차") || washway[i].equals("세차자동") || washway[i].equals("자동식세차") || washway[i].equals("정비/세차") || washway[i].equals("문형식세차")
                         || washway[i].equals("운수장비 수선 및 세차 또는 세척시설") || washway[i].equals("휴업") || washway[i].equals("정비고객 대상")
                         || washway[i].equals("자동세차기") || washway[i].equals("완료") || washway[i].equals("기계식자동세차") || washway[i].equals("자동식")
@@ -407,7 +422,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                 if(washway[i].equals("자동차세차")||washway[i].equals("세차시설")||washway[i].equals("세차장")){
                     washway[i] = "셀프세차";
                 }//애매한 세차시설명 변경
-
+                */
 
                 markers[wash1] = new Marker();
                 markers[wash1].setPosition(new LatLng(Double.parseDouble(lati[i]), Double.parseDouble(lontude[i])));
@@ -416,7 +431,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                 markers[wash1].setHeight(100);
                 markers[wash1].setHideCollidedMarkers(true);
                 markers[wash1].setIcon(OverlayImage.fromResource(R.drawable.ic_car_wash_icon22));
-                markers[wash1].setOnClickListener(com.example.project.Washing.this);
+                markers[wash1].setOnClickListener(com.example.project.CarCenter.this);
                 wash1++;
             }
             progressDialog.dismiss();
