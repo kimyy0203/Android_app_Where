@@ -157,8 +157,8 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                 View view = View.inflate(com.example.project.CarCenter.this, R.layout.item2, null);
                 TextView title = (TextView) view.findViewById(R.id.prkplceNm);
                 TextView money = (TextView) view.findViewById(R.id.operday);
-                title.setText("정비소이름: " + name[as]);
-                money.setText("정비소종류 :" + type[as]);
+                title.setText("정비소이름 : " + name[as]);
+                money.setText("정비소주소 : " + lnmadr[as]);
                 return view;
             }
         });
@@ -311,7 +311,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                 AlertDialog.Builder dlg = new AlertDialog.Builder(com.example.project.CarCenter.this);
 
                 dlg.setTitle("상세정보"); //제목
-                dlg.setMessage("주소 : " + lnmadr[as] + "\n전화번호 : " + phoneN[as] + "\n정비소 종류 : " + type[as] +"\n운영상태 : " + state[as] + "\n운영시간 : " + open[as] + " ~ " + close[as]);
+                dlg.setMessage("주소 : " + lnmadr[as] + "\n전화번호 : " + phoneN[as]  + "\n운영시간 : " + open[as] + " ~ " + close[as]);
                 dlg.setPositiveButton("길찾기", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int a) { //길찾기 버튼 클릭시 주소값을 intent하여 다른 네비게이션 어플과 연동
@@ -427,10 +427,10 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                 markers[wash1] = new Marker();
                 markers[wash1].setPosition(new LatLng(Double.parseDouble(lati[i]), Double.parseDouble(lontude[i])));
                 markers[wash1].setMap(mNaverMap);
-                markers[wash1].setWidth(100);
-                markers[wash1].setHeight(100);
+                markers[wash1].setWidth(150);
+                markers[wash1].setHeight(150);
                 markers[wash1].setHideCollidedMarkers(true);
-                markers[wash1].setIcon(OverlayImage.fromResource(R.drawable.ic_car_wash_icon22));
+                markers[wash1].setIcon(OverlayImage.fromResource(R.drawable.ic_car_center_icon22));
                 markers[wash1].setOnClickListener(com.example.project.CarCenter.this);
                 wash1++;
             }
