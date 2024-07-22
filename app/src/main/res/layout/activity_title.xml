@@ -35,7 +35,7 @@
         android:id="@+id/주차장"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#B0E0E6"
+        android:background="#A1B9BC"
         android:orientation="horizontal">
 
         <ImageView
