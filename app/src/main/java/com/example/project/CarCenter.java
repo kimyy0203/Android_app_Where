@@ -427,8 +427,8 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                 markers[wash1] = new Marker();
                 markers[wash1].setPosition(new LatLng(Double.parseDouble(lati[i]), Double.parseDouble(lontude[i])));
                 markers[wash1].setMap(mNaverMap);
-                markers[wash1].setWidth(150);
-                markers[wash1].setHeight(150);
+                markers[wash1].setWidth(100);
+                markers[wash1].setHeight(120);
                 markers[wash1].setHideCollidedMarkers(true);
                 markers[wash1].setIcon(OverlayImage.fromResource(R.drawable.ic_car_center_icon22));
                 markers[wash1].setOnClickListener(com.example.project.CarCenter.this);
