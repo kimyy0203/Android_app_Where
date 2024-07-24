@@ -72,7 +72,7 @@
 
         <LinearLayout
             android:id="@+id/zz"
-            android:layout_width="350dp"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -104,6 +104,7 @@
                 android:id="@+id/now"
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
                 android:background="#0CA3F4"
                 android:gravity="center_horizontal"
