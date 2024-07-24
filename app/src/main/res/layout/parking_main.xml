@@ -22,7 +22,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/round_corner"
             android:orientation="horizontal">
 
@@ -91,6 +93,9 @@
             android:id="@+id/aa"
             android:layout_width="390dp"
             android:layout_height="45dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/zz"
@@ -104,10 +109,10 @@
 
             <Button
                 android:id="@+id/check"
-                android:layout_width="60dp"
+                android:layout_width="65dp"
                 android:layout_height="45dp"
                 android:text="확인"
-                android:layout_marginLeft="225dp"/>
+                android:layout_marginLeft="200dp"/>
         </LinearLayout>
 
     </RelativeLayout>
