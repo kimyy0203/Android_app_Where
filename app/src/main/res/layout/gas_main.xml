@@ -110,8 +110,7 @@
                 android:layout_margin="3dp"
                 android:background="#0CA3F4"
                 android:gravity="center_horizontal"
-                android:text="검색"
-                android:textSize=""/>
+                android:text="검색" />
         </LinearLayout>
 
         <LinearLayout
