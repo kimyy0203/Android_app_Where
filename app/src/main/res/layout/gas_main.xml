@@ -72,30 +72,31 @@
 
         <LinearLayout
             android:id="@+id/zz"
-            android:layout_width="wrap_content"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/round_corner"
             android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/추천"
-                android:layout_width="100dp"
+                android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:entries="@array/km" />
 
             <Spinner
                 android:id="@+id/spinner2"
-                android:layout_width="100dp"
+                android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:entries="@array/gas" />
 
             <Spinner
                 android:id="@+id/spinner3"
-                android:layout_width="100dp"
+                android:layout_width="90dp"
                 android:layout_height="match_parent"
                 android:entries="@array/array2" />
 
@@ -103,8 +104,7 @@
                 android:id="@+id/now"
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:background="#0CA3F4"
                 android:gravity="center_horizontal"
                 android:text="검색" />
