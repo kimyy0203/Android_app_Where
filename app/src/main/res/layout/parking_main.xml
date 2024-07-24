@@ -91,15 +91,19 @@
 
         <LinearLayout
             android:id="@+id/aa"
-            android:layout_width="390dp"
+            android:layout_width="350dp"
             android:layout_height="45dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true"
+
             android:layout_below="@+id/zz"
-            android:background="#D9FFFFFF">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="#D9FFFFFF"
+            android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/kind"
@@ -111,8 +115,9 @@
                 android:id="@+id/check"
                 android:layout_width="65dp"
                 android:layout_height="45dp"
-                android:text="확인"
-                android:layout_marginLeft="200dp"/>
+                android:layout_marginLeft="150dp"
+                android:layout_marginRight="400dp"
+                android:text="확인" />
         </LinearLayout>
 
     </RelativeLayout>
