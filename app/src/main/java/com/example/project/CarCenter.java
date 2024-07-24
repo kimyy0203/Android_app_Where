@@ -405,9 +405,11 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
             super.onPostExecute(s);
             for (int i = 0; i < count; i++) {
 
+                /*
                 if (name[i] == null || lati[i] == null || lontude[i] == null || lnmadr[i] == null|| phoneN[i] == null|| type[i] == null|| open[i] == null|| close[i] == null|| state[i] == null) {
                     continue;
                 }
+                */
 
                 /*
                 if (name[i] == null || lontude[i] == null || lati[i] == null || washway[i] == null || phoneN[i] == null || Double.parseDouble(lati[i]) >= 38.60491243211909 || phoneN[i].equals("041-337-7617") || phoneN[i].equals("041-338-6688") || phoneN[i].equals("041-331-0877") || washway[i].equals("자동세차") || washway[i].equals("자동") || washway[i].equals("기계식") || washway[i].equals("충전소") || washway[i].equals("기계세차") || washway[i].equals("정비업소") || washway[i].equals("물세차") || washway[i].equals("기계식세차") || washway[i].equals("스팀세차") || washway[i].equals("일반세차") || washway[i].equals("주유소") || washway[i].equals("일반") || washway[i].equals("세차") || washway[i].equals("세차업") || washway[i].equals("자동세차장") || washway[i].equals("손+자동세차") || washway[i].equals("손세차/자동세차") || washway[i].equals("세차자동") || washway[i].equals("자동식세차") || washway[i].equals("정비/세차") || washway[i].equals("문형식세차")
