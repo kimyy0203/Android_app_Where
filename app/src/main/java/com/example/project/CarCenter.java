@@ -310,6 +310,10 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                 InfoWindow.open(marker);
                 AlertDialog.Builder dlg = new AlertDialog.Builder(com.example.project.CarCenter.this);
 
+                if(phoneN[as] == null) phoneN[as] = "정보없음";
+                if(open[as] == null) open[as] = "정보없음";
+                if(close[as] == null) close[as] = "정보없음";
+
                 dlg.setTitle("상세정보"); //제목
                 dlg.setMessage("주소 : " + lnmadr[as] + "\n전화번호 : " + phoneN[as]  + "\n운영시간 : " + open[as] + " ~ " + close[as]);
                 dlg.setPositiveButton("길찾기", new DialogInterface.OnClickListener() {
@@ -405,11 +409,11 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
             super.onPostExecute(s);
             for (int i = 0; i < count; i++) {
 
-                /*
-                if (name[i] == null || lati[i] == null || lontude[i] == null || lnmadr[i] == null|| phoneN[i] == null|| type[i] == null|| open[i] == null|| close[i] == null|| state[i] == null) {
+
+                if (name[i] == null || lati[i] == null || lontude[i] == null || lnmadr[i] == null) {
                     continue;
                 }
-                */
+
 
                 /*
                 if (name[i] == null || lontude[i] == null || lati[i] == null || washway[i] == null || phoneN[i] == null || Double.parseDouble(lati[i]) >= 38.60491243211909 || phoneN[i].equals("041-337-7617") || phoneN[i].equals("041-338-6688") || phoneN[i].equals("041-331-0877") || washway[i].equals("자동세차") || washway[i].equals("자동") || washway[i].equals("기계식") || washway[i].equals("충전소") || washway[i].equals("기계세차") || washway[i].equals("정비업소") || washway[i].equals("물세차") || washway[i].equals("기계식세차") || washway[i].equals("스팀세차") || washway[i].equals("일반세차") || washway[i].equals("주유소") || washway[i].equals("일반") || washway[i].equals("세차") || washway[i].equals("세차업") || washway[i].equals("자동세차장") || washway[i].equals("손+자동세차") || washway[i].equals("손세차/자동세차") || washway[i].equals("세차자동") || washway[i].equals("자동식세차") || washway[i].equals("정비/세차") || washway[i].equals("문형식세차")

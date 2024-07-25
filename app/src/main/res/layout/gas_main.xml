@@ -86,7 +86,7 @@
                 android:id="@+id/추천"
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:layout_margin="3dp"
+                android:layout_margin="1dp"
                 android:layout_height="match_parent"
                 android:entries="@array/km" />
 
@@ -94,7 +94,7 @@
                 android:id="@+id/spinner2"
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:layout_margin="3dp"
+                android:layout_margin="1dp"
                 android:layout_height="match_parent"
                 android:entries="@array/gas" />
 
@@ -102,7 +102,7 @@
                 android:id="@+id/spinner3"
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:layout_margin="3dp"
+                android:layout_margin="1dp"
                 android:layout_height="match_parent"
                 android:entries="@array/array2" />
 
