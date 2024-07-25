@@ -84,34 +84,37 @@
 
             <Spinner
                 android:id="@+id/추천"
-                android:layout_width="80dp"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:layout_margin="3dp"
                 android:layout_height="match_parent"
                 android:entries="@array/km" />
 
             <Spinner
                 android:id="@+id/spinner2"
-                android:layout_width="80dp"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:layout_margin="3dp"
                 android:layout_height="match_parent"
                 android:entries="@array/gas" />
 
             <Spinner
                 android:id="@+id/spinner3"
-                android:layout_width="80dp"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:layout_margin="3dp"
                 android:layout_height="match_parent"
                 android:entries="@array/array2" />
 
             <Button
                 android:id="@+id/now"
-                android:layout_width="65dp"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
                 android:layout_height="match_parent"
                 android:layout_margin="3dp"
-                android:background="#0CA3F4"
+                android:background="#63B6E2"
                 android:gravity="center_horizontal"
-                android:text="검색"
-                android:textSize=""/>
+                android:text="검색" />
         </LinearLayout>
 
         <LinearLayout
