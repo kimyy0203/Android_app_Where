@@ -162,43 +162,10 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
                 return view;
             }
         });
-        Button b4 = (Button) findViewById(R.id.search_btn);
-        final EditText et3 = (EditText) findViewById(R.id.address_input);
-
-        final Geocoder geocoder = new Geocoder(this);
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 주소입력후 지도2버튼 클릭시 해당 위도경도값의 지도화면으로 이동
-                List<Address> list = null;
-
-                String str = et3.getText().toString();
-                try {
-                    list = geocoder.getFromLocationName
-                            (str, // 지역 이름
-                                    10); // 읽을 개수
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Log.e("test", "입출력 오류 - 서버에서 주소변환시 에러발생");
-                }
-                if (list != null) {
-                    if (list.size() != 0) {
-                        // 해당되는 주소로 인텐트 날리기
-                        Address addr = list.get(0);
-                        double lat = addr.getLatitude();
-                        double lon = addr.getLongitude();
-                        CameraUpdate cameraUpdate = CameraUpdate.scrollAndZoomTo(
-                                        new LatLng(lat, lon), 15)
-                                .animate(CameraAnimation.Fly, 3000);
-                        naverMap.moveCamera(cameraUpdate);
 
 
-                    }
-                }
 
 
-            }
-        });
 
     }
 

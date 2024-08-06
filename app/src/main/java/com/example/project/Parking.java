@@ -138,17 +138,6 @@ public class Parking extends AppCompatActivity implements OnMapReadyCallback,Ove
         mLocationSource =
                 new FusedLocationSource(this, PERMISSION_REQUEST_CODE);
 
-
-        camera_btn = findViewById(R.id.camera);
-        camera_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(com.example.project.Parking.this, camera.class);
-                startActivity(intent);
-            }
-        });
-
-
         MyAsyncTask asyncTask = new MyAsyncTask();
         asyncTask.execute();// 파싱 Task 실행
 
@@ -230,45 +219,7 @@ public class Parking extends AppCompatActivity implements OnMapReadyCallback,Ove
             }
         });
 
-
-        Button b4 = (Button) findViewById(R.id.search_btn); //지역 검색 기능
-        final EditText et3 = (EditText) findViewById(R.id.address_input);
-
-        final Geocoder geocoder = new Geocoder(this); //
-
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 주소입력후 지도버튼 클릭시 해당 위도경도값의 지도화면으로 이동
-                List<Address> list = null;
-
-                String str = et3.getText().toString();
-                try {
-                    list = geocoder.getFromLocationName
-                            (str, // 지역 이름
-                                    10); // 읽을 개수
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Log.e("test", "입출력 오류 - 서버에서 주소변환시 에러발생");
-                }
-                if (list != null) {
-                    if (list.size() != 0) {
-                        // 해당되는 주소로 인텐트 날리기
-                        Address addr = list.get(0);
-                        double lat = addr.getLatitude();
-                        double lon = addr.getLongitude();
-                        CameraUpdate cameraUpdate = CameraUpdate.scrollAndZoomTo(
-                                new LatLng(lat, lon), 15)
-                                .animate(CameraAnimation.Fly, 3000);
-                        naverMap.moveCamera(cameraUpdate);
-                    }
-                }
-
-
-            }
-        });
     }
-
 
     private void getXmlData(int q) {  //전국주차장 정보 데이터 파싱
         String queryUrl = "http://api.data.go.kr/openapi/tn_pubr_prkplce_info_api?serviceKey=u3dbLGdaUJ%2BqWl%2BHTN%2FGoEpvtwSEHPztVsTNZPbV7w4KX%2FpVmjjaHJgRzKCEE0EQEtGsL%2B1BxkyveGKxJdNfxw%3D%3D&pageNo=0" + q + "&numOfRows=15000&type=xml";

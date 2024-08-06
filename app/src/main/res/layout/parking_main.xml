@@ -17,46 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <LinearLayout
-            android:id="@+id/zz"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/round_corner"
-            android:orientation="horizontal">
-
-
-            <EditText
-                android:id="@+id/address_input"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="3dp"
-                android:layout_weight="6"
-                android:ems="10"
-                android:hint="주소를 입력하세요"
-                android:textColor="#0B0000"
-                android:textSize="15dp" />
-
-            <Button
-                android:id="@+id/search_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/ic_baseline_search_24" />
-
-            <Button
-                android:id="@+id/camera"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/ic_baseline_photo_camera_24" />
-
-
-        </LinearLayout>
-
         <com.naver.maps.map.widget.LocationButtonView
             android:id="@+id/location"
             android:layout_width="wrap_content"
@@ -96,8 +56,6 @@
             android:id="@+id/aa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:layout_below="@+id/zz"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
