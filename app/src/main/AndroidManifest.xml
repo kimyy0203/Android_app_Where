@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- ACCESS_FINE_LOCATION/ACCESS_COARSE_LOCATION : 권한은 GPS 및 네트워크 기반 위치 접근 권한을 요청한다. 이로 인해 사용자 위치를 정확히 또는 대략적으로 추적할 수 있다.
          INTERNET : 권한은 인터넷 연결 권한을 요청한다. 앱이 네트워크와 상호작용할 수 있다.
