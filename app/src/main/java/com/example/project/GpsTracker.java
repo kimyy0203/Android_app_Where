@@ -1,5 +1,4 @@
 package com.example.project;
-
 import android.Manifest;
 import android.app.Service;
 import android.content.Context;
@@ -13,7 +12,8 @@ import android.os.IBinder;
 import android.util.Log;
 
 import androidx.core.content.ContextCompat;
-
+/* Android 애플리케이션에서 GPS 및 네트워크를 사용하여 사용자의 현재 위치를 추적하는 서비스이다.
+이 클래스는 Service를 상속하고 LocationListener 인터페이스를 구현하여 위치 변경 이벤트를 처리한다.*/
 public class GpsTracker extends Service implements LocationListener {
     private final Context mContext;
     Location location;
