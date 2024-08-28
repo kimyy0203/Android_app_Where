@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 안드로이드 앱의 네트워크 보안 구성을 정의하는 network-security-config.xml 파일이다.-->
 <network-security-config>
+    <!--<network-security-config> : 이 루트 요소는 앱의 네트워크 보안 구성을 정의한다.
+        Android 7.0(Nougat, API 레벨 24) 이상에서 도입된 이 설정은 앱의 네트워크 통신에
+        대한 세부적인 보안 설정을 제어할 수 있다.-->
     <base-config cleartextTrafficPermitted="true">
+        <!-- cleartextTrafficPermitted="true" : 이 속성은 앱이 암호화되지 않은
+             HTTP 통신(평문 트래픽)을 허용할지 여부를 설정한다.
+             true : 평문 트래픽 허용, 이는 보안상 위험할 수 있다.
+             false : 평문 트래픽 허용하지 않음, 대신 HTTPS와 같은 암호화된 통신 사용해야 한다.-->
         <trust-anchors>
+            <!-- <trust-anchors>: 이 요소는 앱에서 신뢰할 수 있는 인증서를 정의한다.
+            인증서들은 네트워크 연결을 설정할 때 서버의 신뢰성을 확인하는 데 사용된다.-->
             <certificates src="system" />
+            <!-- <certificates src="system"> : 이 속성은 시스템에서 제공하는 기본 신뢰할 수 있는 루트 인증서
+                 사용한다는 것을 의미한다. 시스템 인증서는 안드로이드 운영체제에 기본적으로 포함된 신뢰할 수 있는 인증서
+                 이 설정으로 앱은 시스템이 신뢰하는 모든 CA(인증 기관) 인증서를 신뢰한다.-->
         </trust-anchors>
     </base-config>
 </network-security-config>

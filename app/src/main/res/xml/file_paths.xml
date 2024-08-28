@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 안드로이드 앱에서 파일을 공유하거나 저장소에 접근할 때 사용되는 경로를 정의하는 XML.-->
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- <paths> : FileProvider에 의해 사용될 경로들을 정의.-->
+
     <cache-path
         name="cache"
         path="." /> <!--Context.getCacheDir() 내부 저장소-->
+    <!-- name="cache" : 이 경로의 이름을 cache로 지정
+         path="." : 현재 디렉터리(.)를 나타내며, Context.getCacheDir()에 해당하는 내부 캐시 디렉토리를 가리킨다.-->
     <files-path
         name="files"
         path="." /> <!--Context.getFilesDir() 내부 저장소-->
+    <!-- name="files" : 이 경로의 이름을 files로 지정
+         path="." : 현재 디렉터리(.)를 나타내며, Context.getFilesDir()에 해당하는 내부 파일 디렉토리를 가리킨다.-->
 
     <external-path
         name="external"
         path="."/>  <!--  Environment.getExternalStorageDirectory() 외부 저장소-->
+    <!-- name="external": 이 경로의 이름을 "external"로 지정한다.
+         path=".": 외부 저장소 루트 경로(Environment.getExternalStorageDirectory())를 가리킨다.
+         이 경로는 SD 카드와 같은 외부 저장소의 루트 디렉토리를 가리킨다.
+         안드로이드 API 29(안드로이드 10) 이상에서는 권장되지 않으며, Scoped Storage가 도입되었음.-->
+
     <external-cache-path
         name="external-cache"
         path="."/> <!--  Context.getExternalCacheDir() 외부 저장소-->
+    <!-- name="external-cache": 이 경로의 이름을 "external-cache"로 지정한다.
+         path=".": 외부 저장소에 있는 캐시 디렉토리(Context.getExternalCacheDir())를 가리킨다.
+         이 경로는 외부 저장소의 앱 전용 캐시 디렉토리를 가리킨다.-->
     <external-files-path
         name="external-files"
         path="."/> <!--  Context.getExternalFilesDir() 외부 저장소-->
+    <!-- name="external-files": 이 경로의 이름을 "external-files"로 지정한다.
+         path=".": 외부 저장소에 있는 앱 전용 파일 디렉토리(Context.getExternalFilesDir())를 가리킨다.
+         이 경로는 외부 저장소의 앱 전용 파일 디렉토리를 가리킨다.-->
 </paths>
