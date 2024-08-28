@@ -1,5 +1,4 @@
 package com.example.project;
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -54,9 +53,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
-
-
-
+/* CarCenter 와 같은 구성으로 CarCenter 참고*/
 public class Washing extends AppCompatActivity implements OnMapReadyCallback,Overlay.OnClickListener {
     private static final String TAG = "Washing";
     private static final int PERMISSION_REQUEST_CODE = 100;
