@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 정비소 관련 xml-->
 <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +8,9 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".CarCenter">
+    <!-- LinearLayout, RelativeLayout 차이
+         LinearLayout : 자식 뷰들을 순차적으로 배치하는 레이아웃, 세로, 가로로 차례대로 배치. 자식 뷰는 서로 겹치지 않음.
+         RelativeLayout : 자식 뷰들을 다른 뷰나 부모 레이아웃을 기준으로 배치하는 레이아웃. 뷰를 서로 겹치게 할 수 있음. -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

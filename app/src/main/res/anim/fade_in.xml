@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android"
     android:interpolator="@android:anim/overshoot_interpolator">
+    <!-- <set> 태그는 애니메이션들을 그룹화하는 태그이다. 이 태그 안에 여러 애니메이션 요소를
+    포함시켜 동시에 또는 순차적으로 실행되게 할 수 있다.
+    android:interpolator : 애니메이션의 속도를 조절하는 방식(인터폴레이터)을 지정한다.
+    여기서는 overshoot_interpolator를 사용하여 애니메이션이 끝날 때 약간 더 멀리 갔다가 제자리로 돌아오는 효과를 줌.-->
+
+    <!-- <scale> : 크기를 조정하는 애니메이션 정의-->
     <scale
         android:fromXScale="0.0"
         android:toXScale="1.0"
@@ -9,8 +15,19 @@
         android:pivotX="50%"
         android:pivotY="50%"
         android:duration="3000"/>
+    <!-- FromXScale : X축 방향으로 애니메이션이 시작할 때의 크기를 지정한다. 0.0은 원래 크기의 0%를 의미
+         toXScale : X축 방향으로 애니메이션이 끝날 때의 크기를 지정. 1.0은 원래 크기의 100% 의미.
+         FromYScale : Y축 방향으로 애니메이션이 시작할 때의 크기를 지정한다. 0.0은 원래 크기의 0%를 의미
+         toYScale : Y축 방향으로 애니메이션이 끝날 때의 크기를 지정. 1.0은 원래 크기의 100% 의미.
+         pivotX ,pivotY : 애니메이션의 중심 축을 지정한다. 여기서는 뷰의 중앙을 기준으로 애니메이션 수행.
+         duration : 애니메이션이 지속되는 시간을 밀리초 단위로 지정한다. 여기서는 3000밀리초 3초동안 애니메이션 실행.
+         -->
     <alpha
         android:fromAlpha="0.0"
         android:toAlpha="1.0"
         android:duration="3000"/>
+    <!-- <alpha> : 투명도를 조정하는 애니메이션을 정의한다.
+         fromAlpha : 애니메이션이 시작할 때의 투명도 지정. 0.0은 완전히 투명을 의미, 보이지 않음.
+         toAlpha : 애니메이션이 끝날 때의 투명도를 지정한다. 1.0은 완전히 보임을 의미.
+         duration : 애니메이션이 지속되는 시간을 밀리초 단위로 지정.-->
 </set>

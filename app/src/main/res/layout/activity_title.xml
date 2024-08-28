@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- WHERE 메인 화면 정의
+     주차장, 주요소, 세자장, 정비소 누르면 각 해당 항목으로 넘어갈 수 있도록 함-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
