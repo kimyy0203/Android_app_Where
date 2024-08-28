@@ -451,7 +451,6 @@ public class GasStation extends AppCompatActivity implements OnMapReadyCallback,
                 }
                 eventType = xpp.next();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
             // 파싱 중 예외가 발생할 경우, 이를 catch하여 스택 트레이스를 출력한다.
