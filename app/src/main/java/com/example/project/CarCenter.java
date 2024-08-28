@@ -55,6 +55,13 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
+/* 정비소에 대한 정보를 알려주는 메인 화면 동작을 구현한 클래스이다. 해당 CarCenter 클래스는 공공데이터포탈에서 전국 정비소 정보를 API 방식으로
+해당 정보를 XML 파일로 받아온다. 이렇게 받아온 XML 파일을 데이터파싱을 통해 앱에서 나타내고자 하는 정보만 추출하고, 앱으로 표시될 수 있도록 가공한다.
+이때 지도는 네이버 맵을 사용했으며, API를 통해 받아온 정비소의 정보들을 위도, 경도의 값을 통해 지도 위에 마커로 표시되게끔 했다.
+표시된 마커를 클릭시 해당 위치에 있는 정비소의 정보를 볼 수 있으며, 원한다면 길찾기 버튼을 눌러 네비게이션 앱(카카오 맵, 네이버 지도)을 통해
+길찾기 서비스를 제공 받을 수 있도록 다른 앱으로 넘어갈 수 있다.
+또한, 이러한 방식은 앱이 시작되었을 때 비동기식 작업으로 전국에 있는 정비소 정보를 전부 마커로 표시하고, 네이버 지도 위에 표시 된 마커를 보고
+사용자가 원하는 정비소를 찾게 하는 것이다. */
 public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, Overlay.OnClickListener {
     /* OnMapReadyCallback과 Overlay.OnClickListener 인터페이스를 구현하여 지도와 오버레이(마커 등)와 관련된 기능을 처리한다. */
     private static final String TAG = "CarCenter"; // 로그 출력을 위해 사용되는 태그이다.
@@ -83,7 +90,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
     private long backKeyPressedTime = 0; // 뒤로 가기 버튼이 마지막으로 눌린 시간
     private Toast toast; // 사용자에게 짧은 메시지를 보여주는 역할, 뒤로 가기 버튼을 두 번 눌러 종료할 때 사용
     com.naver.maps.map.overlay.InfoWindow InfoWindow; // 지도에서 마커를 클릭했을 때 해당 위치의 추가 정보를 보여주는 창을 생성
-    double lat, lon; // 현재 사용자의 위도 경도
+    double lat, lon; // 선택한 마커의 위도 경도
     int as = 0; //마커클릭시 비교 숫자
     int Mnumber;
     int wash1 = 0;
@@ -122,9 +129,8 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
         // onMapReady에서 NaverMap 객체를 받음
         mapFragment.getMapAsync(this);
 
-        // 위치를 반환하는 구현체인 FusedLocationSource 생성
-        mLocationSource =
-                new FusedLocationSource(this, PERMISSION_REQUEST_CODE);
+        // 위치를 반환하는 구현체인 FusedLocationSource 생성과 초기화, 이를 통해 네이버 맵에서 현재 위치를 추적할 수 있도록 한다.
+        mLocationSource = new FusedLocationSource(this, PERMISSION_REQUEST_CODE);
         CarCenter.MyAsyncTask asyncTask = new CarCenter.MyAsyncTask();
         asyncTask.execute();
         //이 부분 MyAsyncTask 찾아보기
@@ -186,10 +192,10 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
         String queryUrl = "http://api.data.go.kr/openapi/tn_pubr_public_auto_maintenance_company_api?serviceKey=28k6dj2VzcV4Bgng3CN931SanEKlVifOCPTFQ%2FaOF%2BLhVB3gH1YztmmiClWwCeFaviTXIRrZvGFGgkYRiIsipQ%3D%3D&pageNo=0&numOfRows=15000&type=xml";
         //String queryUrl = "http://api.data.go.kr/openapi/tn_pubr_public_carwsh_api?serviceKey=d8w2%2FGzcZJPLy8PLdb7OZOuJk1223dqUzF%2BHWvuT3px1t9dbzJ5cJ95h%2Bg%2B7XsW8hG85guyXA%2BfNbfnLaQtuJA%3D%3D&pageNo=0&numOfRows=15000&type=xml";
         try {
-            URL url = new URL(queryUrl);// 문자열로 된 요청 url을 URL 객체로 생성.
+            URL url = new URL(queryUrl); // 문자열로 된 요청 url을 URL 객체로 생성.
             InputStream is = url.openStream(); // 이 URL로부터 데이터를 읽기 위해 입력 스트림(InputStream)을 연다. InputStream은 데이터를 바이트 단위로 읽는다.
 
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();// xml파싱을 위한 객체 생성
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance(); // xml파싱을 위한 객체 생성
             XmlPullParser xpp = factory.newPullParser(); // 이를 통해 XmlPullParser 객체를 생성
             xpp.setInput(new InputStreamReader(is, "UTF-8")); // 이 파서에 입력 스트림을 연결하여 XML 데이터를 UTF-8 인코딩을 읽을 수 있다. (inputstream 으로부터 xml 입력받기)
 
@@ -241,9 +247,10 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
 
                     case XmlPullParser.TEXT:
                         break;
+
                     case XmlPullParser.END_TAG: // 해당 이벤트가 발생하면, 태그 이름을 가져온다.
                         tag = xpp.getName(); //테그 이름 얻어오기
-                        if (tag.equals("item")) buffer.append("\n");// 만약 태그가 item이라면, 버퍼에 줄바꿈 문자를 추가여 각 정비소 정보를 구분한다. 첫번째 검색결과종료..줄바꿈
+                        if (tag.equals("item")) buffer.append("\n"); // 만약 태그가 item이라면, 버퍼에 줄바꿈 문자를 추가여 각 정비소 정보를 구분한다. 첫번째 검색결과종료..줄바꿈
                         break;
                 }
                 eventType = xpp.next(); // 다음 이벤트로 이동하여 루프가 계속될 수 있도록 한다.
@@ -288,6 +295,7 @@ public class CarCenter extends AppCompatActivity implements OnMapReadyCallback, 
     // 이 메서드는 Overlay.OnClickListener 인터페이스의 onClick 메서드를 오버라이드한 것이다.
     public boolean onClick(@NonNull Overlay overlay) { // 지도 위의 오버레이(이 경우에는 마커)가 클릭되었을 때 호출된다.
         if (overlay instanceof Marker) {
+            // 선택된 해당 마커의 좌표(위도, 경도)정보를 미리 만들어 둔 변수에 저장
             LatLng aa = ((Marker) overlay).getPosition();
             lat = aa.latitude;
             lon = aa.longitude;
